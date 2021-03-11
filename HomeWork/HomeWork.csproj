@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HomeTasks\HomeTasks.csproj" />
+    <ProjectReference Include="..\HomeTasks\HomeTasksLib.csproj" />
   </ItemGroup>
 
 </Project>

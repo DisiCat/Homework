@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace HomeTasks.Tests
+namespace HomeTasksLib.Tests
 {
     public class VariablesTests
     {

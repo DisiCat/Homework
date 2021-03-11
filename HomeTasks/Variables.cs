@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HomeTasks
+namespace HomeTasksLib
 {
     public class Variables
     {
