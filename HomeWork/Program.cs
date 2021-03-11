@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using HomeTasks;
+using HomeTasksLib;
 
 namespace Homework
 {

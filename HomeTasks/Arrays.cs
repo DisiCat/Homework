@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HomeTasks
+namespace HomeTasksLib
 {
     public class Arrays
     {
@@ -25,11 +25,10 @@ namespace HomeTasks
         {
             if (array != null && array.Length > 0)
             {
-
                 int IndexMin = 0;
                 for (int i = 1; i < array.Length; i++)
                 {
-                    if (array[IndexMin] < array[i])
+                    if (array[IndexMin] > array[i])
                         IndexMin = i;
                 }
                 return IndexMin;
@@ -137,7 +136,7 @@ namespace HomeTasks
                 int sum = 0;
                 for (int i = 0; i < array.Length; i++)
                 {
-                    if (i % 2 != 0)
+                    if (i % 2 == 1)
                     {
                         sum += array[i];
                     }
@@ -178,7 +177,7 @@ namespace HomeTasks
                 int counter = 0;
                 for (int i = 0; i < array.Length; i++)
                 {
-                    if (array[i] % 2 != 0)
+                    if (array[i] % 2 == 1)
                     {
                         counter++;
                     }
