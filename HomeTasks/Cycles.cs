@@ -17,18 +17,21 @@ namespace HomeTasks
         }
 
         public static int[] GetNumbersDivisibleByA(int a)
-        {   if (a != 0 && a <= 1000) { 
-            int[] array = new int[1000 / a];
-            int j = 0;
-            for (int i = a; i <= 1000; i += a)
+        {
+            if (a != 0 && a <= 1000)
             {
-                array[j] = i;
-                ++j;
-            }
-            return array;
+                int[] array = new int[1000 / a];
+                int j = 0;
+                for (int i = a; i <= 1000; i += a)
+                {
+                    array[j] = i;
+                    ++j;
+                }
+                return array;
             }
 
             throw new ArgumentException("invalid A");
+
         }
 
         public static int GetNumberOfPositiveIntegersWhoseSquareLessA(int a)
@@ -58,6 +61,7 @@ namespace HomeTasks
                 }
                 return divisorNumber;
             }
+
             throw new ArgumentException("incorrect value entered");
         }
 
@@ -79,6 +83,7 @@ namespace HomeTasks
                     sum += i;
                 }
             }
+
             return sum;
         }
 
@@ -88,6 +93,7 @@ namespace HomeTasks
             int fib2 = 1;
             int fibSum;
             int i = 0;
+
             while (i < n - 2)
             {
                 fibSum = fib1 + fib2;
@@ -95,6 +101,7 @@ namespace HomeTasks
                 fib2 = fibSum;
                 i++;
             }
+
             return fib2;
         }
 
@@ -119,35 +126,33 @@ namespace HomeTasks
         {
             if (number != 1)
             {
-                if (!(number < 0))
+                int left = 1;
+                int right = number;
+                int middle = 0;
+                int midllePow3 = 0;
+                while (number != midllePow3)
                 {
-                    int left = 1;
-                    int right = number;
-                    int middle = 0;
-                    int midllePow3 = 0;
-                    while (number != midllePow3)
-                    {
-                        middle = left + (right - left) / 2;
-                        midllePow3 = middle * middle * middle;
+                    middle = left + (right - left) / 2;
+                    midllePow3 = middle * middle * middle;
 
-                        if (number < (midllePow3))
-                        {
-                            right = middle - 1;
-                        }
-                        else
-                        {
-                            left = middle + 1;
-                        }
+                    if (number < (midllePow3))
+                    {
+                        right = middle - 1;
                     }
-                    return middle;
+                    else
+                    {
+                        left = middle + 1;
+                    }
                 }
+              
+                return middle;
 
             }
             else
             {
                 return number;
             }
-            throw new ArgumentException("This value cannot be a natural integer cube");
+
         }
 
         public static int GetNumberOfOddDigitsOfNumber(int number)

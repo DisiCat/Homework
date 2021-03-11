@@ -6,126 +6,187 @@ namespace HomeTasks
     {
         public static int GetMaxElementindex(int[] array)
         {
-            int IndexMax = 0;
-            for (int i = 1; i < array.Length; i++)
+            if (array != null && array.Length > 0)
             {
-                if (array[IndexMax] < array[i])
-                    IndexMax = i;
+
+                int IndexMax = 0;
+                for (int i = 1; i < array.Length; i++)
+                {
+                    if (array[IndexMax] < array[i])
+                        IndexMax = i;
+                }
+                return IndexMax;
             }
-            return IndexMax;
+
+            throw new ArgumentException("Invalid array entered ");
         }
 
         public static int GetMinElementindex(int[] array)
         {
-            int IndexMin = 0;
-            for (int i = 1; i < array.Length; i++)
+            if (array != null && array.Length > 0)
             {
-                if (array[IndexMin] < array[i])
-                    IndexMin = i;
+
+                int IndexMin = 0;
+                for (int i = 1; i < array.Length; i++)
+                {
+                    if (array[IndexMin] < array[i])
+                        IndexMin = i;
+                }
+                return IndexMin;
             }
-            return IndexMin;
+
+            throw new ArgumentException("Invalid array entered ");
         }
 
         public static int GetMax(int[] array)
         {
-            return array[GetMaxElementindex(array)];
+            if (array != null && array.Length > 0)
+            {
+                return array[GetMaxElementindex(array)];
+            }
+
+            throw new ArgumentException("Invalid array entered ");
+
         }
 
         public static int GetMin(int[] array)
         {
-            return array[GetMinElementindex(array)];
+            if (array != null && array.Length > 0)
+            {
+                return array[GetMinElementindex(array)];
+            }
+
+            throw new ArgumentException("Invalid array entered ");
         }
 
         public static int[] GetReverse(int[] array)
         {
-            int temp;
-            int lengthArray = array.Length - 1;
-            for (int i = 0; i < array.Length / 2; i++)
+            if (array != null && array.Length > 0)
             {
-                temp = array[i];
-                array[i] = array[lengthArray - i];
-                array[lengthArray - i] = temp;
+
+                int temp;
+                int lengthArray = array.Length - 1;
+                for (int i = 0; i < array.Length / 2; i++)
+                {
+                    temp = array[i];
+                    array[i] = array[lengthArray - i];
+                    array[lengthArray - i] = temp;
+                }
+                return array;
             }
-            return array;
+
+            throw new ArgumentException("Invalid array entered ");
+
         }
 
         public static int[] SortDescendingBubble(int[] array)
         {
-            int temp;
-            for (int i = 0; i < array.Length - 1; i++)
-                for (int j = i + 1; j < array.Length; j++)
-                {
-                    if (array[i] < array[j])
+            if (array != null && array.Length > 0)
+            {
+
+                int temp;
+                for (int i = 0; i < array.Length - 1; i++)
+                    for (int j = i + 1; j < array.Length; j++)
                     {
-                        temp = array[i];
-                        array[i] = array[j];
-                        array[j] = temp;
+                        if (array[i] < array[j])
+                        {
+                            temp = array[i];
+                            array[i] = array[j];
+                            array[j] = temp;
+                        }
                     }
-                }
-            return array;
+                return array;
+            }
+
+            throw new ArgumentException("Invalid array entered ");
         }
 
         public static int[] SortAscendingInsert(int[] array)
         {
-            int j;
-            int temp;
-            for (int i = 1; i < array.Length; i++)
+            if (array != null && array.Length > 0)
             {
 
-                j = i;
-                temp = array[i];
-
-                while (j > 0 && temp < array[j - 1])
+                int j;
+                int temp;
+                for (int i = 1; i < array.Length; i++)
                 {
-                    array[j] = array[j - 1];
-                    j--;
+
+                    j = i;
+                    temp = array[i];
+
+                    while (j > 0 && temp < array[j - 1])
+                    {
+                        array[j] = array[j - 1];
+                        j--;
+                    }
+
+                    array[j] = temp;
+
                 }
-
-                array[j] = temp;
-
+                return array;
             }
-            return array;
+
+            throw new ArgumentException("Invalid array entered ");
         }
 
         public static int GetSumElementWithOddIndices(int[] array)
         {
-            int sum = 0;
-            for (int i = 0; i < array.Length; i++)
+            if (array != null && array.Length > 0)
             {
-                if (i % 2 != 0)
+
+                int sum = 0;
+                for (int i = 0; i < array.Length; i++)
                 {
-                    sum += array[i];
+                    if (i % 2 != 0)
+                    {
+                        sum += array[i];
+                    }
                 }
+
+                return sum;
             }
 
-            return sum;
+            throw new ArgumentException("Invalid array entered ");
         }
 
         public static int[] SwapFirstAndSecondHalfArray(int[] array)
         {
-            int temp;
-            int swapElements = array.Length / 2 + array.Length % 2;
-
-            for (int i = 0; i < array.Length / 2; i++)
+            if (array != null && array.Length > 0)
             {
-                temp = array[i];
-                array[i] = array[i + swapElements];
-                array[swapElements + i] = temp;
+
+                int temp;
+                int swapElements = array.Length / 2 + array.Length % 2;
+
+                for (int i = 0; i < array.Length / 2; i++)
+                {
+                    temp = array[i];
+                    array[i] = array[i + swapElements];
+                    array[swapElements + i] = temp;
+                }
+
+                return array;
             }
 
-            return array;
+            throw new ArgumentException("Invalid array entered ");
         }
         public static int GetNumberOfOddElements(int[] array)
         {
-            int counter = 0;
-            for (int i = 0; i < array.Length; i++)
+
+            if (array != null && array.Length > 0)
             {
-                if (array[i] % 2 != 0)
+
+                int counter = 0;
+                for (int i = 0; i < array.Length; i++)
                 {
-                    counter++;
+                    if (array[i] % 2 != 0)
+                    {
+                        counter++;
+                    }
                 }
+                return counter;
             }
-            return counter;
+
+            throw new ArgumentException("Invalid array entered ");
         }
 
 
