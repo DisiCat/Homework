@@ -8,17 +8,22 @@ namespace HomeTasksLib
     {
         public static int Pow(int a, int b)
         {
-            int temp = a;
-            for (int i = 1; i < b; i++)
+            if (!(b <= 0 || a < 0))
             {
-                a *= temp; 
+                int temp = a;
+                for (int i = 1; i < b; i++)
+                {
+                    a *= temp;
+                }
+                return a;
             }
-            return a;
+
+            throw new ArgumentException("Enter correct values");
         }
 
         public static int[] GetNumbersDivisibleByA(int a)
         {
-            if (a != 0 && a <= 1000)
+            if (!(a <= 0 || a > 1000))
             {
                 int[] array = new int[1000 / a];
                 int j = 0;
@@ -49,7 +54,7 @@ namespace HomeTasksLib
 
         public static int GetLargestDivisorByA(int a)
         {
-            if(!(a == 0))
+            if(!(a <= 0))
             {
                 int divisorNumber = 0;
                 for (int i = 1; i < a; i++)
@@ -67,6 +72,9 @@ namespace HomeTasksLib
 
         public static int GetSumOfAllNumbersInRangeThatAreEvenlyDivisibleBy7(int a,int b)
         {
+            if (!(a < 0 || b < 0))
+            {
+
             int temp;
             if (a > b)
             {
@@ -85,24 +93,32 @@ namespace HomeTasksLib
             }
 
             return sum;
+            }
+
+            throw new ArgumentException("incorrect value entered");
         }
 
         public static int GetNthNumberOfFibonacciSeries(int n)
         {
-            int fib1 = 1;
-            int fib2 = 1;
-            int fibSum;
-            int i = 0;
-
-            while (i < n - 2)
+            if (n > 0)
             {
-                fibSum = fib1 + fib2;
-                fib1 = fib2;
-                fib2 = fibSum;
-                i++;
+                int fib1 = 1;
+                int fib2 = 1;
+                int fibSum;
+                int i = 0;
+
+                while (i < n - 2)
+                {
+                    fibSum = fib1 + fib2;
+                    fib1 = fib2;
+                    fib2 = fibSum;
+                    i++;
+                }
+
+                return fib2;
             }
 
-            return fib2;
+            throw new ArgumentException("incorrect value entered");
         }
 
         public static int GetGreatestCommonDivisorUsingEuclidsAlgo(int a, int b)

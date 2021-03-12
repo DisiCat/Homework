@@ -1,6 +1,6 @@
-using System;
 using Xunit;
 using HomeTasksLib;
+using System;
 
 namespace XUnitHomeTasksLib.Tests
 {
@@ -20,6 +20,18 @@ namespace XUnitHomeTasksLib.Tests
         }
 
         [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void GetMaxElementindex_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int actual = Arrays.GetMaxElementindex(array);
+            });
+
+        }
+
+        [Theory]
         [InlineData(new int[] { 3, 4, 54, 3, 2 }, 4)]
         [InlineData(new int[] { 1, 3, 4, 5, 6, 2 }, 0)]
         [InlineData(new int[] { 10, 3, 4, 12, 3, 2 }, 5)]
@@ -30,6 +42,18 @@ namespace XUnitHomeTasksLib.Tests
             int actual = Arrays.GetMinElementindex(array);
 
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void GetMinElementindex_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int actual = Arrays.GetMinElementindex(array);
+            });
+
         }
 
         [Theory]
@@ -46,6 +70,18 @@ namespace XUnitHomeTasksLib.Tests
         }
 
         [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void GetMax_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int actual = Arrays.GetMax(array);
+            });
+
+        }
+
+        [Theory]
         [InlineData(new int[] { 3, 4, 54, 3, 2 }, 2)]
         [InlineData(new int[] { 1, 3, 4, 5, 6, 2 }, 1)]
         [InlineData(new int[] { 10, 3, 4, 12, 3, 2 }, 2)]
@@ -56,6 +92,18 @@ namespace XUnitHomeTasksLib.Tests
             int actual = Arrays.GetMin(array);
 
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void GetMin_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int actual = Arrays.GetMin(array);
+            });
+
         }
 
         [Theory]
@@ -73,6 +121,18 @@ namespace XUnitHomeTasksLib.Tests
         }
 
         [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void GetReverse_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[] actual = Arrays.GetReverse(array);
+            });
+
+        }
+
+        [Theory]
         [InlineData(new int[] { 3, 4, 54, 3, 2 }, new int[] { 54, 4, 3, 3, 2 })]
         [InlineData(new int[] { 1, 3, 4, 5, 6, 2 }, new int[] { 6, 5, 4, 3, 2, 1 })]
         [InlineData(new int[] { 10, 3, 4, 12, 3, 2 }, new int[] { 12, 10, 4, 3, 3, 2 })]
@@ -87,6 +147,18 @@ namespace XUnitHomeTasksLib.Tests
         }
 
         [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void SortDescendingBubble_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[] actual = Arrays.SortDescendingBubble(array);
+            });
+
+        }
+
+        [Theory]
         [InlineData(new int[] { 3, 4, 54, 3, 2 }, new int[] { 2, 3, 3, 4, 54 })]
         [InlineData(new int[] { 1, 3, 4, 5, 6, 2 }, new int[] { 1, 2, 3, 4, 5, 6 })]
         [InlineData(new int[] { 10, 3, 4, 12, 3, 2 }, new int[] { 2, 3, 3, 4, 10, 12 })]
@@ -98,6 +170,17 @@ namespace XUnitHomeTasksLib.Tests
             int[] actual = Arrays.SortAscendingInsert(array);
 
             Assert.Equal(expected, actual);
+        }
+        [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void SortAscendingInsert_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[] actual = Arrays.SortAscendingInsert(array);
+            });
+
         }
 
         [Theory]
@@ -115,6 +198,18 @@ namespace XUnitHomeTasksLib.Tests
         }
 
         [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void GetSumElementWithOddIndices_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int actual = Arrays.GetSumElementWithOddIndices(array);
+            });
+
+        }
+
+        [Theory]
         [InlineData(new int[] { 3, 4, 54, 3, 2 }, new int[] { 3, 2, 54, 3, 4 })]
         [InlineData(new int[] { 1, 3, 4, 5, 6, 2 }, new int[] { 5, 6, 2, 1, 3, 4 })]
         [InlineData(new int[] { 1, 1, 1 }, new int[] { 1, 1, 1 })]
@@ -128,6 +223,18 @@ namespace XUnitHomeTasksLib.Tests
         }
 
         [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void SwapFirstAndSecondHalfArray_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[] actual = Arrays.SwapFirstAndSecondHalfArray(array);
+            });
+
+        }
+
+        [Theory]
         [InlineData(new int[] { 4 }, 0)]
         [InlineData(new int[] { 1, 3, 4, 5, 6, 2 }, 3)]
         [InlineData(new int[] { 1, 1, 1 }, 3)]
@@ -138,6 +245,18 @@ namespace XUnitHomeTasksLib.Tests
             int actual = Arrays.GetNumberOfOddElements(array);
 
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(new int[] { })]
+        [InlineData(null)]
+        public void GetNumberOfOddElements_WhenArrayPassed_ShouldReturnArgumentException(int[] array)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int actual = Arrays.GetNumberOfOddElements(array);
+            });
+
         }
 
     }

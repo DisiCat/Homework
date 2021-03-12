@@ -117,7 +117,7 @@ namespace HomeTasksLib
 
         public static string GetUppercaseNumber(int number)
         {
-            if (!(number < 10 || number > 100))
+            if (!(number < 10 || number >= 100))
             {
                 string uppercaseNumber = string.Empty;
                 int numeral1 = number / 10;
@@ -229,7 +229,7 @@ namespace HomeTasksLib
                
             }
 
-            throw new Exception("Please enter a two-digit number");
+            throw new ArgumentException("Please enter a two-digit number");
         }
 
     }
