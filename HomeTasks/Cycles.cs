@@ -29,8 +29,8 @@ namespace HomeTasksLib
                 int j = 0;
                 for (int i = a; i <= 1000; i += a)
                 {
-                    array[j] = i;
-                    ++j;
+                    array[j++] = i;
+
                 }
                 return array;
             }
