@@ -112,6 +112,46 @@ namespace HomeTasksLib
 
         }
 
+        public static int GetNumberElementsArrayThatAreLargerThanAllTheirNeighbors(int[,] array)
+        {
+            if (!(array == null || array.Length < 0))
+            {
+
+                int counter = 0;
+                for (int i = 0; i < array.GetLength(0); i++)
+                {
+
+                    for (int j = 0; j < array.GetLength(1); j++)
+                    {
+                        var conditionsPassed = true;
+                        for (int k = -1; k <= 1 && conditionsPassed; k++)
+                        {
+                            int NewIndexI = i - k;
+                            for (int l = -1; l <= 1; l++)
+                            {
+                                int NewIndexJ = j - l;
+                                if ((NewIndexI != i || NewIndexJ != j)
+                                   && NewIndexI >= 0 && NewIndexI < array.GetLength(0)
+                                   && NewIndexJ >= 0 && NewIndexJ < array.GetLength(1)
+                                   && array[i, j] <= array[NewIndexI, NewIndexJ])
+                                {
+                                    conditionsPassed = false;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (conditionsPassed)
+                        {
+                            ++counter;
+                        }
+                    }
+                }
+                return counter;
+            }
+            throw new ArgumentException("invalid array");
+
+        }
     }
 
 }
