@@ -57,31 +57,62 @@ namespace HomeTasksLib
 
         public static int GetMinElementArray(int[,] array)
         {
-            if (!(array == null || array.Length < 0))
-            {
                 int[] arr = GetIndexOfTheMinimumElementArray(array);
                 int min = array[arr[0], arr[1]];
 
                 return min;
-            }
-
-            throw new ArgumentException("invalid array");
         }
 
         public static int GetMaxElementArray(int[,] array)
         {
-            if (!(array == null || array.Length < 0))
-            {
                 int[] arr = GetIndexOfTheMaximumElementArray(array);
                 int max = array[arr[0], arr[1]];
 
                 return max;
+        }
+
+        public static int[,] FlipAnArrayRelativeToItsMainDiagonal(int[,] array)
+        {
+            if (!(array == null || array.Length < 0))
+            {
+                int[,] RelativeArray = new int[array.GetLength(0), array.GetLength(1)];
+                if (array.GetLength(0) == array.GetLength(1))
+                {
+
+                    for (int i = 0; i < array.GetLength(0); i++)
+                    {
+                        for (int j = i; j < array.GetLength(1); j++)
+                        {
+                            if (i != j)
+                            {
+                                RelativeArray[j, i] = array[i, j];
+
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    RelativeArray = new int[array.GetLength(1), array.GetLength(0)];
+                    for (int i = 0; i < array.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < array.GetLength(1); j++)
+                        {
+                            RelativeArray[j, i] = array[i, j];
+                        }
+                    }
+
+
+                }
+                return RelativeArray;
             }
 
             throw new ArgumentException("invalid array");
-        }
-    }
 
+        }
+
+    }
 
 }
 
