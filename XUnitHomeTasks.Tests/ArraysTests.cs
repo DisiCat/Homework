@@ -32,7 +32,7 @@ namespace XUnitHomeTasksLib.Tests
         }
 
         [Theory]
-        [InlineData(new int[] { 3, 4, 54, 3, 2 }, 4)]
+        [InlineData(new int[] { 3, 4, 54, 3, -1 }, 4)]
         [InlineData(new int[] { 1, 3, 4, 5, 6, 2 }, 0)]
         [InlineData(new int[] { 10, 3, 4, 12, 3, 2 }, 5)]
         [InlineData(new int[] { 1, 1, 1, 1, 1, 1 }, 0)]

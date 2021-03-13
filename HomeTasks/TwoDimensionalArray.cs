@@ -8,7 +8,7 @@ namespace HomeTasksLib
     {
         public static int[] GetIndexOfTheMaximumElementArray(int[,] array)
         {
-            if (!(array == null || array.Length < 0))
+            if (array != null && array.Length > 0)
             {
                 int maxIndexI = 0;
                 int maxindexJ = 0;
@@ -32,7 +32,7 @@ namespace HomeTasksLib
         }
         public static int[] GetIndexOfTheMinimumElementArray(int[,] array)
         {
-            if (array == null || array.Length > 0)
+            if (array != null && array.Length > 0)
             {
                 int minIndexI = 0;
                 int minindexJ = 0;
@@ -73,7 +73,7 @@ namespace HomeTasksLib
 
         public static int[,] FlipAnArrayRelativeToItsMainDiagonal(int[,] array)
         {
-            if (!(array == null || array.Length < 0))
+            if (array != null && array.Length > 0)
             {
                 int[,] RelativeArray = new int[array.GetLength(0), array.GetLength(1)];
                 if (array.GetLength(0) == array.GetLength(1))
@@ -112,7 +112,7 @@ namespace HomeTasksLib
 
         public static int GetNumberElementsArrayThatAreLargerThanAllTheirNeighbors(int[,] array)
         {
-            if (!(array == null || array.Length < 0))
+            if (array != null && array.Length > 0)
             {
 
                 int counter = 0;

@@ -16,6 +16,17 @@ namespace HomeTasksLib.Tests
             Assert.AreEqual(actual, excpected);
         }
 
+        [TestCase(0)]
+        [TestCase(null)]
+        public static void GetIndexOfTheMaximumElementArray_WhenArrayPassed_ShouldReturnArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = DoubleArrayMock.GetMock(mockNumber);
+                int[] actual = TwoDimensionalArray.GetIndexOfTheMaximumElementArray(array);
+            });
+        }
+
         [TestCase(1, new int[] { 0, 0 })]
         [TestCase(2, new int[] { 0, 0 })]
         public static void GetIndexOfTheMinimumElementArray_WhenArrayPassed_ShouldReturnIndexMinElement(int mockNumber, int[] excpected)
@@ -24,6 +35,17 @@ namespace HomeTasksLib.Tests
             int[] actual = TwoDimensionalArray.GetIndexOfTheMinimumElementArray(array);
 
             Assert.AreEqual(actual, excpected);
+        }
+
+        [TestCase(0)]
+        [TestCase(null)]
+        public static void GetIndexOfTheMinimumElementArray_WhenArrayPassed_ShouldReturnArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = DoubleArrayMock.GetMock(mockNumber);
+                int[] actual = TwoDimensionalArray.GetIndexOfTheMinimumElementArray(array);
+            });
         }
 
         [TestCase(1, 9)]
@@ -36,6 +58,17 @@ namespace HomeTasksLib.Tests
             Assert.AreEqual(actual, excpected);
         }
 
+        [TestCase(0)]
+        [TestCase(null)]
+        public static void GetMaximumElementArray_WhenArrayPassed_ShouldReturnArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = DoubleArrayMock.GetMock(mockNumber);
+                int actual = TwoDimensionalArray.GetMaxElementArray(array);
+            });
+        }
+
         [TestCase(1, 1)]
         [TestCase(2, 1)]
         public static void GetMinimumElementArray_WhenArrayPassed_ShouldReturnMinimumElementArray(int mockNumber, int excpected)
@@ -44,6 +77,17 @@ namespace HomeTasksLib.Tests
             int actual = TwoDimensionalArray.GetMinElementArray(array);
 
             Assert.AreEqual(actual, excpected);
+        }
+
+        [TestCase(0)]
+        [TestCase(null)]
+        public static void GetMinimumElementArray_WhenArrayPassed_ShouldReturnArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = DoubleArrayMock.GetMock(mockNumber);
+                int actual = TwoDimensionalArray.GetMinElementArray(array);
+            });
         }
 
         [TestCase(1, 3)]
@@ -58,6 +102,17 @@ namespace HomeTasksLib.Tests
             Assert.AreEqual(actual, expected);
         }
 
+        [TestCase(0)]
+        [TestCase(null)]
+        public static void FlipAnArrayRelativeToItsMainDiagonal_WhenArrayPassed_ShouldReturnArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = DoubleArrayMock.GetMock(mockNumber);
+                int[,] actual = TwoDimensionalArray.FlipAnArrayRelativeToItsMainDiagonal(array);
+            });
+        }
+
         [TestCase(1, 1)]
         [TestCase(2, 0)]
         [TestCase(5, 1)]
@@ -69,6 +124,18 @@ namespace HomeTasksLib.Tests
 
             Assert.AreEqual(actual, expected);
         }
+
+        [TestCase(0)]
+        [TestCase(null)]
+        public static void GetNumberElementsArrayThatAreLargerThanAllTheirNeighbors_WhenArrayPassed_ShouldReturnArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = DoubleArrayMock.GetMock(mockNumber);
+                int actual = TwoDimensionalArray.GetNumberElementsArrayThatAreLargerThanAllTheirNeighbors(array);
+            });
+        }
+
     }
 
     public class DoubleArrayMock
@@ -78,6 +145,9 @@ namespace HomeTasksLib.Tests
             int[,] result = new int[0, 0];
             switch (number)
             {
+                case 0:
+                    result = new int[,] {};
+                    break;
                 case 1:
                     result = new int[,] {
                         {1,2,3 },
